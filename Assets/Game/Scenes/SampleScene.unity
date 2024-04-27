@@ -7277,7 +7277,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _climbOffset: {x: 0, y: 1, z: 0.16}
-  _climbSpeed: 20
+  _climbSpeed: 60
 --- !u!54 &6909307155850160646
 Rigidbody:
   m_ObjectHideFlags: 0
