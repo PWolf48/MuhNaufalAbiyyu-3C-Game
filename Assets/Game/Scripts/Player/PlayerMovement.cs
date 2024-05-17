@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _resetComboInterval;
     [SerializeField] private Transform _cameraTransform;
     [SerializeField] public CameraManager _cameraManager;
+    [SerializeField] private PlayerAudioManager _playerAudioManager;
     private CapsuleCollider _collider;
     private Animator _animator;
     private float _speed;
@@ -275,6 +276,7 @@ public class PlayerMovement : MonoBehaviour
             _playerStance = PlayerStance.Glide;
             _animator.SetBool("IsGliding", true);
             _cameraManager.SetFPSClampedCamera(true, transform.rotation.eulerAngles);
+            _playerAudioManager.PlayGlideSfx();
         }
     }
     private void CancelGlide()
@@ -284,6 +286,7 @@ public class PlayerMovement : MonoBehaviour
             _playerStance = PlayerStance.Stand;
             _animator.SetBool("IsGliding", false);
             _cameraManager.SetFPSClampedCamera(false, transform.rotation.eulerAngles);
+            _playerAudioManager.StopGlideSfx();
         }
     }
     private void ChangePerspective()

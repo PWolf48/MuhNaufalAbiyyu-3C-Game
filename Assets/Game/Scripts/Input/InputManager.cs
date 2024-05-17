@@ -15,6 +15,7 @@ public class InputManager : MonoBehaviour
     public Action OnChangePOV;
     public Action OnCrouchInput;
     public Action OnPunchInput;
+    public Action OnMainMenuInput;
     private void Update()
     {
         CheckMovementInput();
@@ -137,7 +138,10 @@ public class InputManager : MonoBehaviour
         bool isPause = Input.GetKeyDown(KeyCode.Escape);
         if(isPause)
         {
-            Debug.Log("Main Menu");
+            if(OnMainMenuInput != null)
+            {
+                OnMainMenuInput();
+            }
         }
     }
 }
